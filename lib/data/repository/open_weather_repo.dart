@@ -6,7 +6,7 @@ class OpenWeatherRepo {
   final OpenWeather _openWeather;
 
   Future<WeatherModel> get5dayForecast(
-      {String? latitude, String? longitude}) async {
+      {required String latitude, required String longitude}) async {
     return await _openWeather.get5dayForecast(lat: latitude, lon: longitude);
   }
 }

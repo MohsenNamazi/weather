@@ -8,7 +8,10 @@ class OpenWeather extends DioRequest {
   // The API key just covers the free plan
   final apiKey = 'b769f316d6618f4745debdeffe210f47';
 
-  Future<WeatherModel> get5dayForecast({String? lat, String? lon}) async {
+  Future<WeatherModel> get5dayForecast({
+    required String lat,
+    required String lon,
+  }) async {
     final queryParameters = <String, dynamic>{
       'lat': lat,
       'lon': lon,
