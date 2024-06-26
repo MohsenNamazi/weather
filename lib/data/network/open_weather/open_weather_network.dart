@@ -2,8 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:weather/data/model/weather_model/weather_model.dart';
 import 'package:weather/data/network/dio/dio_request.dart';
 
-class OpenWeather extends DioRequest {
-  OpenWeather(Dio dio) : super(dio, 'https://api.openweathermap.org');
+class OpenWeatherNetwork extends DioRequest {
+  OpenWeatherNetwork(Dio dio) : super(dio, 'https://api.openweathermap.org');
 
   // The API key just covers the free plan
   final apiKey = 'b769f316d6618f4745debdeffe210f47';

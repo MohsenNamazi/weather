@@ -14,13 +14,18 @@ class WeatherScreenCubit extends Cubit<WeatherScreenState> {
 
   final OpenWeatherRepo _repository;
 
-  Future<void> getCurrentLanguage() async {
+  final berlinLat = '52.5200';
+  final berlinLon = '13.4050';
+
+  Future<void> loadWeather({
+    String? latitude,
+    String? longitude,
+  }) async {
     try {
       final data = await _repository.get5dayForecast(
-        latitude: '24',
-        longitude: '28',
+        latitude: latitude ?? berlinLat,
+        longitude: longitude ?? berlinLon,
       );
-
       emit(WeatherScreenState.data(data));
     } catch (e, stackTrace) {
       emit(

@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather/app_router.dart';
-import 'package:weather/data/network/open_weather/open_weather.dart';
+import 'package:weather/data/network/open_weather/open_weather_network.dart';
+import 'package:weather/data/repository/open_weather_repo.dart';
+import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 
 final _getIt = GetIt.instance;
 
@@ -19,7 +22,13 @@ abstract class Injector {
         () => Dio(),
       )
       ..registerLazySingleton(
-        () => OpenWeather(inject()),
+        () => OpenWeatherNetwork(inject()),
+      )
+      ..registerLazySingleton(
+        () => OpenWeatherRepo(inject()),
+      )
+      ..registerLazyBlocSingleton(
+        () => WeatherScreenCubit(repository: inject()),
       );
   }
 
@@ -70,10 +79,10 @@ class InjectorException {
   }
 }
 
-// extension on GetIt {
-//   void registerLazyBlocSingleton<B extends BlocBase<Object>>(
-//     B Function() create,
-//   ) {
-//     registerLazySingleton(create, dispose: (bloc) => bloc.close());
-//   }
-// }
+extension on GetIt {
+  void registerLazyBlocSingleton<B extends BlocBase<Object>>(
+    B Function() create,
+  ) {
+    registerLazySingleton(create, dispose: (bloc) => bloc.close());
+  }
+}
