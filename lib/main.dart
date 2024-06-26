@@ -21,9 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        InjectedBlocProvider<WeatherScreenCubit>(
-          onCreate: (bloc) => bloc.loadWeather(),
-        ),
+        InjectedBlocProvider<WeatherScreenCubit>(),
       ],
       child: MaterialApp.router(
         title: 'Flutter Demo',

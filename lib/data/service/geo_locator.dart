@@ -1,7 +1,9 @@
 import 'package:geolocator/geolocator.dart';
 
 class UserLocation {
-  UserLocation({required double lat, required double long});
+  final double lat;
+  final double lon;
+  UserLocation({required this.lat, required this.lon});
 }
 
 class GeoLocator {
@@ -31,6 +33,6 @@ class GeoLocator {
     final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-    return UserLocation(lat: position.latitude, long: position.longitude);
+    return UserLocation(lat: position.latitude, lon: position.longitude);
   }
 }
