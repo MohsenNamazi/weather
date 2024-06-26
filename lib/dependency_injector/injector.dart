@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:weather/app_router.dart';
 import 'package:weather/data/network/open_weather/open_weather_network.dart';
 import 'package:weather/data/repository/open_weather_repo.dart';
+import 'package:weather/data/service/geo_locator.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 
 final _getIt = GetIt.instance;
@@ -26,6 +27,9 @@ abstract class Injector {
       )
       ..registerLazySingleton(
         () => OpenWeatherRepo(inject()),
+      )
+      ..registerLazySingleton(
+        () => GeoLocator(),
       )
       ..registerLazyBlocSingleton(
         () => WeatherScreenCubit(repository: inject()),
