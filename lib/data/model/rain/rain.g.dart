@@ -7,10 +7,10 @@ part of 'rain.dart';
 // **************************************************************************
 
 _$RainImpl _$$RainImplFromJson(Map<String, dynamic> json) => _$RainImpl(
-      h1: (json['1h'] as num).toDouble(),
+      h3: (json['3h'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$RainImplToJson(_$RainImpl instance) =>
     <String, dynamic>{
-      '1h': instance.h1,
+      '3h': instance.h3,
     };

@@ -21,7 +21,7 @@ class WeatherData with _$WeatherData {
     required double pop,
     required Rain? rain,
     required Sys sys,
-    required String dtTxt,
+    @JsonKey(name: 'dt_txt') required String dtTxt,
   }) = _WeatherData;
 
   factory WeatherData.fromJson(Map<String, dynamic> json) =>

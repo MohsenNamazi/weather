@@ -21,7 +21,7 @@ _$WeatherDataImpl _$$WeatherDataImplFromJson(Map<String, dynamic> json) =>
           ? null
           : Rain.fromJson(json['rain'] as Map<String, dynamic>),
       sys: Sys.fromJson(json['sys'] as Map<String, dynamic>),
-      dtTxt: json['dtTxt'] as String,
+      dtTxt: json['dt_txt'] as String,
     );
 
 Map<String, dynamic> _$$WeatherDataImplToJson(_$WeatherDataImpl instance) =>
@@ -35,5 +35,5 @@ Map<String, dynamic> _$$WeatherDataImplToJson(_$WeatherDataImpl instance) =>
       'pop': instance.pop,
       'rain': instance.rain,
       'sys': instance.sys,
-      'dtTxt': instance.dtTxt,
+      'dt_txt': instance.dtTxt,
     };

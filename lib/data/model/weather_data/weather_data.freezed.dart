@@ -29,6 +29,7 @@ mixin _$WeatherData {
   double get pop => throw _privateConstructorUsedError;
   Rain? get rain => throw _privateConstructorUsedError;
   Sys get sys => throw _privateConstructorUsedError;
+  @JsonKey(name: 'dt_txt')
   String get dtTxt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +54,7 @@ abstract class $WeatherDataCopyWith<$Res> {
       double pop,
       Rain? rain,
       Sys sys,
-      String dtTxt});
+      @JsonKey(name: 'dt_txt') String dtTxt});
 
   $MainCopyWith<$Res> get main;
   $CloudsCopyWith<$Res> get clouds;
@@ -193,7 +194,7 @@ abstract class _$$WeatherDataImplCopyWith<$Res>
       double pop,
       Rain? rain,
       Sys sys,
-      String dtTxt});
+      @JsonKey(name: 'dt_txt') String dtTxt});
 
   @override
   $MainCopyWith<$Res> get main;
@@ -287,7 +288,7 @@ class _$WeatherDataImpl implements _WeatherData {
       required this.pop,
       required this.rain,
       required this.sys,
-      required this.dtTxt})
+      @JsonKey(name: 'dt_txt') required this.dtTxt})
       : _weather = weather;
 
   factory _$WeatherDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -318,6 +319,7 @@ class _$WeatherDataImpl implements _WeatherData {
   @override
   final Sys sys;
   @override
+  @JsonKey(name: 'dt_txt')
   final String dtTxt;
 
   @override
@@ -374,16 +376,17 @@ class _$WeatherDataImpl implements _WeatherData {
 
 abstract class _WeatherData implements WeatherData {
   const factory _WeatherData(
-      {required final int dt,
-      required final Main main,
-      required final List<Weather> weather,
-      required final Clouds clouds,
-      required final Wind wind,
-      required final int visibility,
-      required final double pop,
-      required final Rain? rain,
-      required final Sys sys,
-      required final String dtTxt}) = _$WeatherDataImpl;
+          {required final int dt,
+          required final Main main,
+          required final List<Weather> weather,
+          required final Clouds clouds,
+          required final Wind wind,
+          required final int visibility,
+          required final double pop,
+          required final Rain? rain,
+          required final Sys sys,
+          @JsonKey(name: 'dt_txt') required final String dtTxt}) =
+      _$WeatherDataImpl;
 
   factory _WeatherData.fromJson(Map<String, dynamic> json) =
       _$WeatherDataImpl.fromJson;
@@ -407,6 +410,7 @@ abstract class _WeatherData implements WeatherData {
   @override
   Sys get sys;
   @override
+  @JsonKey(name: 'dt_txt')
   String get dtTxt;
   @override
   @JsonKey(ignore: true)

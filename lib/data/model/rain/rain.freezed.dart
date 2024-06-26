@@ -20,8 +20,8 @@ Rain _$RainFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Rain {
-  @JsonKey(name: '1h')
-  double get h1 => throw _privateConstructorUsedError;
+  @JsonKey(name: '3h')
+  double? get h3 => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +33,7 @@ abstract class $RainCopyWith<$Res> {
   factory $RainCopyWith(Rain value, $Res Function(Rain) then) =
       _$RainCopyWithImpl<$Res, Rain>;
   @useResult
-  $Res call({@JsonKey(name: '1h') double h1});
+  $Res call({@JsonKey(name: '3h') double? h3});
 }
 
 /// @nodoc
@@ -49,13 +49,13 @@ class _$RainCopyWithImpl<$Res, $Val extends Rain>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? h1 = null,
+    Object? h3 = freezed,
   }) {
     return _then(_value.copyWith(
-      h1: null == h1
-          ? _value.h1
-          : h1 // ignore: cast_nullable_to_non_nullable
-              as double,
+      h3: freezed == h3
+          ? _value.h3
+          : h3 // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -67,7 +67,7 @@ abstract class _$$RainImplCopyWith<$Res> implements $RainCopyWith<$Res> {
       __$$RainImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: '1h') double h1});
+  $Res call({@JsonKey(name: '3h') double? h3});
 }
 
 /// @nodoc
@@ -80,13 +80,13 @@ class __$$RainImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? h1 = null,
+    Object? h3 = freezed,
   }) {
     return _then(_$RainImpl(
-      h1: null == h1
-          ? _value.h1
-          : h1 // ignore: cast_nullable_to_non_nullable
-              as double,
+      h3: freezed == h3
+          ? _value.h3
+          : h3 // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -94,18 +94,18 @@ class __$$RainImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RainImpl implements _Rain {
-  const _$RainImpl({@JsonKey(name: '1h') required this.h1});
+  const _$RainImpl({@JsonKey(name: '3h') this.h3});
 
   factory _$RainImpl.fromJson(Map<String, dynamic> json) =>
       _$$RainImplFromJson(json);
 
   @override
-  @JsonKey(name: '1h')
-  final double h1;
+  @JsonKey(name: '3h')
+  final double? h3;
 
   @override
   String toString() {
-    return 'Rain(h1: $h1)';
+    return 'Rain(h3: $h3)';
   }
 
   @override
@@ -113,12 +113,12 @@ class _$RainImpl implements _Rain {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RainImpl &&
-            (identical(other.h1, h1) || other.h1 == h1));
+            (identical(other.h3, h3) || other.h3 == h3));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, h1);
+  int get hashCode => Object.hash(runtimeType, h3);
 
   @JsonKey(ignore: true)
   @override
@@ -135,14 +135,13 @@ class _$RainImpl implements _Rain {
 }
 
 abstract class _Rain implements Rain {
-  const factory _Rain({@JsonKey(name: '1h') required final double h1}) =
-      _$RainImpl;
+  const factory _Rain({@JsonKey(name: '3h') final double? h3}) = _$RainImpl;
 
   factory _Rain.fromJson(Map<String, dynamic> json) = _$RainImpl.fromJson;
 
   @override
-  @JsonKey(name: '1h')
-  double get h1;
+  @JsonKey(name: '3h')
+  double? get h3;
   @override
   @JsonKey(ignore: true)
   _$$RainImplCopyWith<_$RainImpl> get copyWith =>

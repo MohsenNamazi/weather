@@ -21,13 +21,19 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Main {
   double get temp => throw _privateConstructorUsedError;
+  @JsonKey(name: 'feels_like')
   double get feelsLike => throw _privateConstructorUsedError;
+  @JsonKey(name: 'temp_min')
   double get tempMin => throw _privateConstructorUsedError;
+  @JsonKey(name: 'temp_max')
   double get tempMax => throw _privateConstructorUsedError;
   int get pressure => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sea_level')
   int get seaLevel => throw _privateConstructorUsedError;
+  @JsonKey(name: 'grnd_level')
   int get grndLevel => throw _privateConstructorUsedError;
   int get humidity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'temp_kf')
   double get tempKf => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,14 +48,14 @@ abstract class $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double temp,
-      double feelsLike,
-      double tempMin,
-      double tempMax,
+      @JsonKey(name: 'feels_like') double feelsLike,
+      @JsonKey(name: 'temp_min') double tempMin,
+      @JsonKey(name: 'temp_max') double tempMax,
       int pressure,
-      int seaLevel,
-      int grndLevel,
+      @JsonKey(name: 'sea_level') int seaLevel,
+      @JsonKey(name: 'grnd_level') int grndLevel,
       int humidity,
-      double tempKf});
+      @JsonKey(name: 'temp_kf') double tempKf});
 }
 
 /// @nodoc
@@ -125,14 +131,14 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {double temp,
-      double feelsLike,
-      double tempMin,
-      double tempMax,
+      @JsonKey(name: 'feels_like') double feelsLike,
+      @JsonKey(name: 'temp_min') double tempMin,
+      @JsonKey(name: 'temp_max') double tempMax,
       int pressure,
-      int seaLevel,
-      int grndLevel,
+      @JsonKey(name: 'sea_level') int seaLevel,
+      @JsonKey(name: 'grnd_level') int grndLevel,
       int humidity,
-      double tempKf});
+      @JsonKey(name: 'temp_kf') double tempKf});
 }
 
 /// @nodoc
@@ -201,14 +207,14 @@ class __$$MainImplCopyWithImpl<$Res>
 class _$MainImpl implements _Main {
   const _$MainImpl(
       {required this.temp,
-      required this.feelsLike,
-      required this.tempMin,
-      required this.tempMax,
+      @JsonKey(name: 'feels_like') required this.feelsLike,
+      @JsonKey(name: 'temp_min') required this.tempMin,
+      @JsonKey(name: 'temp_max') required this.tempMax,
       required this.pressure,
-      required this.seaLevel,
-      required this.grndLevel,
+      @JsonKey(name: 'sea_level') required this.seaLevel,
+      @JsonKey(name: 'grnd_level') required this.grndLevel,
       required this.humidity,
-      required this.tempKf});
+      @JsonKey(name: 'temp_kf') required this.tempKf});
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainImplFromJson(json);
@@ -216,20 +222,26 @@ class _$MainImpl implements _Main {
   @override
   final double temp;
   @override
+  @JsonKey(name: 'feels_like')
   final double feelsLike;
   @override
+  @JsonKey(name: 'temp_min')
   final double tempMin;
   @override
+  @JsonKey(name: 'temp_max')
   final double tempMax;
   @override
   final int pressure;
   @override
+  @JsonKey(name: 'sea_level')
   final int seaLevel;
   @override
+  @JsonKey(name: 'grnd_level')
   final int grndLevel;
   @override
   final int humidity;
   @override
+  @JsonKey(name: 'temp_kf')
   final double tempKf;
 
   @override
@@ -280,34 +292,40 @@ class _$MainImpl implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {required final double temp,
-      required final double feelsLike,
-      required final double tempMin,
-      required final double tempMax,
+      @JsonKey(name: 'feels_like') required final double feelsLike,
+      @JsonKey(name: 'temp_min') required final double tempMin,
+      @JsonKey(name: 'temp_max') required final double tempMax,
       required final int pressure,
-      required final int seaLevel,
-      required final int grndLevel,
+      @JsonKey(name: 'sea_level') required final int seaLevel,
+      @JsonKey(name: 'grnd_level') required final int grndLevel,
       required final int humidity,
-      required final double tempKf}) = _$MainImpl;
+      @JsonKey(name: 'temp_kf') required final double tempKf}) = _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
   @override
   double get temp;
   @override
+  @JsonKey(name: 'feels_like')
   double get feelsLike;
   @override
+  @JsonKey(name: 'temp_min')
   double get tempMin;
   @override
+  @JsonKey(name: 'temp_max')
   double get tempMax;
   @override
   int get pressure;
   @override
+  @JsonKey(name: 'sea_level')
   int get seaLevel;
   @override
+  @JsonKey(name: 'grnd_level')
   int get grndLevel;
   @override
   int get humidity;
   @override
+  @JsonKey(name: 'temp_kf')
   double get tempKf;
   @override
   @JsonKey(ignore: true)

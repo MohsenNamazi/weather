@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather/app_router.dart';
+import 'package:weather/data/network/open_weather/open_weather.dart';
 
 final _getIt = GetIt.instance;
 
@@ -16,6 +17,9 @@ abstract class Injector {
       )
       ..registerLazySingleton(
         () => Dio(),
+      )
+      ..registerLazySingleton(
+        () => OpenWeather(inject()),
       );
   }
 
