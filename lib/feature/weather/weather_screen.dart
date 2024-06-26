@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/data/model/weather_model/weather_model.dart';
+import 'package:weather/feature/common/consts/spacing.dart';
 import 'package:weather/feature/common/extentions/build_context.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 
@@ -10,22 +12,72 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return BlocConsumer<WeatherScreenCubit, WeatherScreenState>(
       listener: (BuildContext context, state) {},
       builder: (context, state) {
-        return Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(l10n?.helloWorld ?? ''),
-              ],
-            ),
-          ),
+        return state.when(
+          initial: () => const _InitialView(),
+          loading: () => const _LoadingView(),
+          data: (data) => _DataView(data),
+          error: (e, st) => const _ErrorView(),
         );
       },
     );
+  }
+}
+
+class _InitialView extends StatelessWidget {
+  const _InitialView();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Scaffold(
+      body: Center(
+        child: Text(l10n.welcome),
+      ),
+    );
+  }
+}
+
+class _LoadingView extends StatelessWidget {
+  const _LoadingView();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: SizedBox(
+          height: Spacing.s15,
+          width: Spacing.s15,
+          child: CircularProgressIndicator(),
+        ),
+      ),
+    );
+  }
+}
+
+class _ErrorView extends StatelessWidget {
+  const _ErrorView();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Scaffold(
+      body: ElevatedButton(
+        onPressed: () {},
+        child: Text(l10n.retry),
+      ),
+    );
+  }
+}
+
+class _DataView extends StatelessWidget {
+  const _DataView(this.weatherModel);
+
+  final WeatherModel weatherModel;
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
   }
 }

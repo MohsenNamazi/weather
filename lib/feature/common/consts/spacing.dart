@@ -1,0 +1,56 @@
+abstract class Spacing {
+  // Base size
+  static const bs = 4.0;
+  static const zero = 0.0;
+
+  static const s1 = 1 * bs;
+  static const s2 = 2 * bs;
+  static const s3 = 3 * bs;
+  static const s4 = 4 * bs;
+  static const s5 = 5 * bs;
+  static const s6 = 6 * bs;
+  static const s7 = 7 * bs;
+  static const s8 = 8 * bs;
+  static const s9 = 9 * bs;
+  static const s10 = 10 * bs;
+  static const s11 = 11 * bs;
+  static const s12 = 12 * bs;
+  static const s13 = 13 * bs;
+  static const s14 = 14 * bs;
+  static const s15 = 15 * bs;
+  static const s16 = 16 * bs;
+  static const s17 = 17 * bs;
+  static const s18 = 18 * bs;
+  static const s19 = 19 * bs;
+  static const s20 = 20 * bs;
+  static const s21 = 21 * bs;
+  static const s22 = 22 * bs;
+  static const s23 = 23 * bs;
+  static const s24 = 24 * bs;
+  static const s25 = 25 * bs;
+  static const s26 = 26 * bs;
+  static const s27 = 27 * bs;
+  static const s28 = 28 * bs;
+  static const s29 = 29 * bs;
+  static const s30 = 30 * bs;
+  static const s31 = 31 * bs;
+  static const s32 = 32 * bs;
+  static const s33 = 33 * bs;
+  static const s34 = 34 * bs;
+  static const s35 = 35 * bs;
+  static const s36 = 36 * bs;
+  static const s37 = 37 * bs;
+  static const s40 = 40 * bs;
+  static const s41 = 41 * bs;
+  static const s43 = 43 * bs;
+  static const s50 = 50 * bs;
+  static const s54 = 54 * bs;
+  static const s52 = 52 * bs;
+  static const s58 = 58 * bs;
+  static const s59 = 59 * bs;
+  static const s60 = 60 * bs;
+  static const s65 = 65 * bs;
+  static const s70 = 70 * bs;
+  static const s75 = 75 * bs;
+  static const s90 = 90 * bs;
+}
