@@ -99,9 +99,11 @@ class _ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      body: ElevatedButton(
-        onPressed: onLoadWeather,
-        child: Text(l10n.retry),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: onLoadWeather,
+          child: Text(l10n.retry),
+        ),
       ),
     );
   }
