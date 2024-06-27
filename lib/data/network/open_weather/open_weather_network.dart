@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:weather/data/model/weather_model/weather_model.dart';
 import 'package:weather/data/network/dio/dio_request.dart';
+import 'package:weather/data/repository/open_weather_repo.dart';
 
 class OpenWeatherNetwork extends DioRequest {
   OpenWeatherNetwork(Dio dio) : super(dio, 'https://api.openweathermap.org');
@@ -11,10 +12,12 @@ class OpenWeatherNetwork extends DioRequest {
   Future<WeatherModel> get5dayForecast({
     required double lat,
     required double lon,
+    required Units unit,
   }) async {
     final queryParameters = <String, dynamic>{
       'lat': lat,
       'lon': lon,
+      'units': unit.name,
       'appid': apiKey,
     }..removeWhere((k, v) => v == null);
     final result = await setDioRequest(

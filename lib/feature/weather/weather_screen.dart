@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/data/model/weather_data/weather_data.dart';
 import 'package:weather/data/model/weather_model/weather_model.dart';
+import 'package:weather/data/repository/open_weather_repo.dart';
 import 'package:weather/data/service/geo_locator.dart';
 import 'package:weather/dependency_injector/injector.dart';
 import 'package:weather/feature/common/consts/spacing.dart';
 import 'package:weather/feature/common/extentions/build_context.dart';
+import 'package:weather/feature/weather/cubit/units_cubit.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 import 'package:weather/feature/weather/widgets/weather_image.dart';
 
@@ -29,26 +31,31 @@ class _WeatherScreenState extends State<WeatherScreen> {
     super.initState();
   }
 
-  Future<void> loadWeather() async {
+  Future<void> loadWeather({Units? unit}) async {
     final userLocation = await inject<GeoLocator>().getLocation();
-    inject<WeatherScreenCubit>().loadWeather(userLocation: userLocation);
+    inject<WeatherScreenCubit>().loadWeather(
+      userLocation: userLocation,
+      unit: unit ?? Units.metric,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<WeatherScreenCubit, WeatherScreenState>(
-      listener: (BuildContext context, state) {},
-      builder: (context, state) {
-        return state.when(
-          initial: () => const _InitialView(),
-          loading: () => const _LoadingView(),
-          data: (data) => _DataView(
-            data: data,
-            onLoadWeather: loadWeather,
-          ),
-          error: (e, st) => _ErrorView(loadWeather),
-        );
-      },
+    return BlocListener<UnitsCubit, Units>(
+      listener: (context, unit) => loadWeather(unit: unit),
+      child: BlocBuilder<WeatherScreenCubit, WeatherScreenState>(
+        builder: (context, state) {
+          return state.when(
+            initial: () => const _InitialView(),
+            loading: () => const _LoadingView(),
+            data: (data) => _DataView(
+              data: data,
+              onLoadWeather: loadWeather,
+            ),
+            error: (e, st) => _ErrorView(loadWeather),
+          );
+        },
+      ),
     );
   }
 }

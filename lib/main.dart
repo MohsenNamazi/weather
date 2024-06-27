@@ -5,6 +5,7 @@ import 'package:weather/app_router.dart';
 import 'package:weather/dependency_injector/injected_bloc_provider.dart';
 import 'package:weather/dependency_injector/injector.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:weather/feature/weather/cubit/units_cubit.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         InjectedBlocProvider<WeatherScreenCubit>(),
+        InjectedBlocProvider<UnitsCubit>(),
       ],
       child: MaterialApp.router(
         title: 'Flutter Demo',

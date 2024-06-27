@@ -15,6 +15,7 @@ class _DataPortraitView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final bottomPadding = context.bottomPadding;
+    final appUnit = inject<UnitsCubit>().state;
 
     return Column(
       children: [
@@ -38,7 +39,7 @@ class _DataPortraitView extends StatelessWidget {
               const SizedBox(height: Spacing.s4),
               Center(
                 child: Text(
-                  selectedDay.first.main.temp.toString(),
+                  '${selectedDay.first.main.temp} ${appUnit.sym}',
                 ),
               ),
               const SizedBox(height: Spacing.s4),

@@ -7,6 +7,7 @@ import 'package:weather/app_router.dart';
 import 'package:weather/data/network/open_weather/open_weather_network.dart';
 import 'package:weather/data/repository/open_weather_repo.dart';
 import 'package:weather/data/service/geo_locator.dart';
+import 'package:weather/feature/weather/cubit/units_cubit.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 
 final _getIt = GetIt.instance;
@@ -33,6 +34,9 @@ abstract class Injector {
       )
       ..registerLazyBlocSingleton(
         () => WeatherScreenCubit(repository: inject()),
+      )
+      ..registerLazyBlocSingleton(
+        () => UnitsCubit(),
       );
   }
 

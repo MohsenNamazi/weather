@@ -15,6 +15,7 @@ class _DataLandscapeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final screenWidth = context.width;
+    final appUnit = inject<UnitsCubit>().state;
 
     return Stack(
       children: [
@@ -56,7 +57,7 @@ class _DataLandscapeView extends StatelessWidget {
                     ),
                     const SizedBox(height: Spacing.s4),
                     Text(
-                      selectedDay.first.main.temp.toString(),
+                      '${selectedDay.first.main.temp} ${appUnit.sym}',
                     ),
                   ],
                 ),

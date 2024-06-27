@@ -17,11 +17,15 @@ class WeatherScreenCubit extends Cubit<WeatherScreenState> {
 
   final berlinLocation = UserLocation(lat: 52.5200, lon: 13.4050);
 
-  Future<void> loadWeather({UserLocation? userLocation}) async {
+  Future<void> loadWeather({
+    UserLocation? userLocation,
+    required Units unit,
+  }) async {
     try {
       emit(const WeatherScreenState.loading());
       final data = await _repository.get5dayForecast(
         userLocation: userLocation ?? berlinLocation,
+        unit: unit,
       );
       emit(WeatherScreenState.data(data));
     } catch (e, stackTrace) {

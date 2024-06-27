@@ -34,6 +34,15 @@ class _DataViewState extends State<_DataView> {
             title: Text(
                 '${widget.data.city.name} - ${selectedDay.first.dayName(context)}'),
             centerTitle: true,
+            actions: [
+              BlocBuilder<UnitsCubit, Units>(
+                builder: (context, unit) {
+                  return TextButton(
+                      onPressed: () => inject<UnitsCubit>().toggleUnits(),
+                      child: Text(unit.sym));
+                },
+              )
+            ],
           ),
           body: RefreshIndicator(
             onRefresh: widget.onLoadWeather,
