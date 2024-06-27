@@ -58,7 +58,7 @@ class _DailyWeatherTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: Spacing.s2),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent),
+          border: Border.all(color: Colors.grey),
         ),
         child: Padding(
           padding: const EdgeInsets.all(Spacing.s2),
@@ -66,6 +66,9 @@ class _DailyWeatherTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(weatherData.dayShortName(context)),
+              WeatherImage(
+                iconId: weatherData.weather.first.icon,
+              ),
               Text('${weatherData.main.tempMax} / ${weatherData.main.tempMin}')
             ],
           ),

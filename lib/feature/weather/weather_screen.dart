@@ -8,6 +8,7 @@ import 'package:weather/dependency_injector/injector.dart';
 import 'package:weather/feature/common/consts/spacing.dart';
 import 'package:weather/feature/common/extentions/build_context.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
+import 'package:weather/feature/weather/widgets/weather_image.dart';
 
 part '../weather/widgets/data_view.dart';
 
