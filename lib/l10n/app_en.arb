@@ -14,6 +14,32 @@
     "saturday" : "Saturday",
     "saturdayShort" : "Sat",
     "sunday" : "Sunday",
-    "sundayShort" : "Sun"
-
+    "sundayShort" : "Sun",
+    "humidity": "Humidity: {num}%",
+    "@humidity": {
+        "description": "Shows the humidity of the day",
+        "placeholders": {
+            "num": {
+            "type": "int"
+            }
+        }
+    },
+    "pressure": "Pressure: {num} hPa",
+    "@pressure": {
+        "description": "Shows the pressure",
+        "placeholders": {
+            "num": {
+            "type": "int"
+            }
+        }
+    },
+    "wind": "Wind: {num} km/h",
+    "@wind": {
+        "description": "Shows the wind speed",
+        "placeholders": {
+            "num": {
+            "type": "double"
+            }
+        }
+    }
 }

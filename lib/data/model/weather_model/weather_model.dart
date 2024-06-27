@@ -18,3 +18,21 @@ class WeatherModel with _$WeatherModel {
   factory WeatherModel.fromJson(Map<String, dynamic> json) =>
       _$WeatherModelFromJson(json);
 }
+
+extension WeatherModelExtention on WeatherModel {
+  // Goupe days
+  List<List<WeatherData>> get groupedDays {
+    List<List<WeatherData>> groupedList = [];
+
+    List<WeatherData> cashedGroup = [];
+    for (final weatherGroup in list) {
+      if (cashedGroup.isNotEmpty &&
+          cashedGroup.first.dateTime.day != weatherGroup.dateTime.day) {
+        groupedList.add(List.of(cashedGroup));
+        cashedGroup.clear();
+      }
+      cashedGroup.add(weatherGroup);
+    }
+    return groupedList;
+  }
+}

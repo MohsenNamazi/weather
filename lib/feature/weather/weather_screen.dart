@@ -11,6 +11,8 @@ import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
 import 'package:weather/feature/weather/widgets/weather_image.dart';
 
 part '../weather/widgets/data_view.dart';
+part 'widgets/data_portrait_view.dart';
+part 'widgets/data_landscape_view.dart';
 
 @RoutePage()
 class WeatherScreen extends StatefulWidget {

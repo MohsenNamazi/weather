@@ -13,4 +13,10 @@ extension BuildContextExtension on BuildContext {
   double get bottomPadding => mediaQuery.padding.bottom;
 
   double get topPadding => mediaQuery.padding.top;
+
+  Orientation get oritentation => MediaQuery.of(this).orientation;
+
+  bool get isPortrait => oritentation == Orientation.portrait;
+
+  double get width => MediaQuery.sizeOf(this).width;
 }
