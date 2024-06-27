@@ -31,18 +31,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
     super.initState();
   }
 
-  Future<void> loadWeather({Units? unit}) async {
+  Future<void> loadWeather() async {
+    final unit = inject<UnitsCubit>().state;
     final userLocation = await inject<GeoLocator>().getLocation();
     inject<WeatherScreenCubit>().loadWeather(
       userLocation: userLocation,
-      unit: unit ?? Units.metric,
+      unit: unit,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<UnitsCubit, Units>(
-      listener: (context, unit) => loadWeather(unit: unit),
+      listener: (_, __) => loadWeather(),
       child: BlocBuilder<WeatherScreenCubit, WeatherScreenState>(
         builder: (context, state) {
           return state.when(
