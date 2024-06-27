@@ -7,4 +7,10 @@ extension BuildContextExtension on BuildContext {
     assert(localizations != null, 'AppLocalizations is not available');
     return localizations!;
   }
+
+  MediaQueryData get mediaQuery => MediaQuery.of(this);
+
+  double get bottomPadding => mediaQuery.padding.bottom;
+
+  double get topPadding => mediaQuery.padding.top;
 }

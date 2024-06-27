@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/data/model/weather_data/weather_data.dart';
 import 'package:weather/data/model/weather_model/weather_model.dart';
 import 'package:weather/data/service/geo_locator.dart';
 import 'package:weather/dependency_injector/injector.dart';
 import 'package:weather/feature/common/consts/spacing.dart';
 import 'package:weather/feature/common/extentions/build_context.dart';
 import 'package:weather/feature/weather/cubit/weather_screen_cubit.dart';
+
+part '../weather/widgets/data_view.dart';
 
 @RoutePage()
 class WeatherScreen extends StatefulWidget {
@@ -19,11 +22,11 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
-    getUserLocation();
+    loadWeather();
     super.initState();
   }
 
-  Future<void> getUserLocation() async {
+  Future<void> loadWeather() async {
     final userLocation = await inject<GeoLocator>().getLocation();
     inject<WeatherScreenCubit>().loadWeather(userLocation: userLocation);
   }
@@ -36,8 +39,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
         return state.when(
           initial: () => const _InitialView(),
           loading: () => const _LoadingView(),
-          data: (data) => _DataView(data),
-          error: (e, st) => const _ErrorView(),
+          data: (data) => _DataView(
+            data: data,
+            onLoadWeather: loadWeather,
+          ),
+          error: (e, st) => _ErrorView(loadWeather),
         );
       },
     );
@@ -76,26 +82,17 @@ class _LoadingView extends StatelessWidget {
 }
 
 class _ErrorView extends StatelessWidget {
-  const _ErrorView();
+  const _ErrorView(this.onLoadWeather);
+  final VoidCallback onLoadWeather;
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
       body: ElevatedButton(
-        onPressed: () {},
+        onPressed: onLoadWeather,
         child: Text(l10n.retry),
       ),
     );
-  }
-}
-
-class _DataView extends StatelessWidget {
-  const _DataView(this.weatherModel);
-
-  final WeatherModel weatherModel;
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
   }
 }
