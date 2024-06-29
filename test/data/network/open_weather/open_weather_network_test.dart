@@ -33,7 +33,7 @@ void main() {
 
       final weatherModel = WeatherModel.fromJson(response);
 
-      final result = await openWeatherNetwork.get5dayForecast(
+      final result = await openWeatherNetwork.getFivedayForecast(
         lat: 52.5200,
         lon: 13.4050,
         unit: Units.metric,
@@ -56,7 +56,7 @@ void main() {
       final openWeatherNetwork = OpenWeatherNetwork(dio);
 
       expect(
-        () async => await openWeatherNetwork.get5dayForecast(
+        () async => await openWeatherNetwork.getFivedayForecast(
           lat: 52.5200,
           lon: 13.4050,
           unit: Units.metric,

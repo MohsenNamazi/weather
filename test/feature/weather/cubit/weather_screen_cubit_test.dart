@@ -20,7 +20,7 @@ void main() {
   setUp(() async {
     openWeatherRepoMock = OpenWeatherRepoMock();
     cubit = WeatherScreenCubit(repository: openWeatherRepoMock);
-    weatherModel = await WeatherModelFake.getData;
+    weatherModel = await WeatherModelFake.getData();
   });
 
   tearDown(() {

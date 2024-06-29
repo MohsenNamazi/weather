@@ -9,7 +9,7 @@ class OpenWeatherNetwork extends DioRequest {
   // The API key just covers the free plan
   final apiKey = 'b769f316d6618f4745debdeffe210f47';
 
-  Future<WeatherModel> get5dayForecast({
+  Future<WeatherModel> getFivedayForecast({
     required double lat,
     required double lon,
     required Units unit,

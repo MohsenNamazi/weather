@@ -25,7 +25,7 @@ class OpenWeatherRepo {
     required UserLocation userLocation,
     required Units unit,
   }) async {
-    return await _openWeather.get5dayForecast(
+    return await _openWeather.getFivedayForecast(
       lat: userLocation.lat,
       lon: userLocation.lon,
       unit: unit,
