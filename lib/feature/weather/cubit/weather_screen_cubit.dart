@@ -23,7 +23,7 @@ class WeatherScreenCubit extends Cubit<WeatherScreenState> {
   }) async {
     try {
       emit(const WeatherScreenState.loading());
-      final data = await _repository.get5dayForecast(
+      final data = await _repository.getFivedayForecast(
         userLocation: userLocation ?? berlinLocation,
         unit: unit,
       );

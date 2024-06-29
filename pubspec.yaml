@@ -34,7 +34,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.5.1
+  http_mock_adapter: ^0.6.1
   json_serializable: ^6.7.1
+  mocktail: ^1.0.3
+
 
 
 # The following section is specific to Flutter packages.

@@ -21,7 +21,7 @@ class OpenWeatherRepo {
   OpenWeatherRepo(this._openWeather);
   final OpenWeatherNetwork _openWeather;
 
-  Future<WeatherModel> get5dayForecast({
+  Future<WeatherModel> getFivedayForecast({
     required UserLocation userLocation,
     required Units unit,
   }) async {
