@@ -130,11 +130,16 @@ void main() {
         AppLocalizations.of(tester.element(find.byType(WeatherScreen)))!;
 
     expect(find.byType(Text), findsWidgets);
+    expect(find.byType(RefreshIndicator), findsOneWidget);
     expect(find.text(l10n.tuesdayShort), findsOneWidget);
     expect(find.text(l10n.humidity(69)), findsOneWidget);
     expect(find.text(l10n.pressure(1015)), findsOneWidget);
     expect(find.text(l10n.wind(.62)), findsOneWidget);
+    expect(find.text('${weatherData.city.name} - ${l10n.tuesday}'),
+        findsOneWidget);
+
     expect(find.text('Rain'), findsOneWidget);
     expect(find.text('296.76 ${Units.imperial.sym}'), findsOneWidget);
   });
 }
+// Zocca - Tuesday
