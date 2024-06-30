@@ -20,7 +20,7 @@ mixin _$WeatherScreenState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WeatherModel language) data,
+    required TResult Function(WeatherModel weatherModel) data,
     required TResult Function(Object? error, StackTrace? stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$WeatherScreenState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WeatherModel language)? data,
+    TResult? Function(WeatherModel weatherModel)? data,
     TResult? Function(Object? error, StackTrace? stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$WeatherScreenState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WeatherModel language)? data,
+    TResult Function(WeatherModel weatherModel)? data,
     TResult Function(Object? error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WeatherModel language) data,
+    required TResult Function(WeatherModel weatherModel) data,
     required TResult Function(Object? error, StackTrace? stackTrace) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WeatherModel language)? data,
+    TResult? Function(WeatherModel weatherModel)? data,
     TResult? Function(Object? error, StackTrace? stackTrace)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WeatherModel language)? data,
+    TResult Function(WeatherModel weatherModel)? data,
     TResult Function(Object? error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WeatherModel language) data,
+    required TResult Function(WeatherModel weatherModel) data,
     required TResult Function(Object? error, StackTrace? stackTrace) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WeatherModel language)? data,
+    TResult? Function(WeatherModel weatherModel)? data,
     TResult? Function(Object? error, StackTrace? stackTrace)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WeatherModel language)? data,
+    TResult Function(WeatherModel weatherModel)? data,
     TResult Function(Object? error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -320,9 +320,9 @@ abstract class _$$DataImplCopyWith<$Res> {
           _$DataImpl value, $Res Function(_$DataImpl) then) =
       __$$DataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({WeatherModel language});
+  $Res call({WeatherModel weatherModel});
 
-  $WeatherModelCopyWith<$Res> get language;
+  $WeatherModelCopyWith<$Res> get weatherModel;
 }
 
 /// @nodoc
@@ -335,21 +335,21 @@ class __$$DataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? language = null,
+    Object? weatherModel = null,
   }) {
     return _then(_$DataImpl(
-      null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
+      null == weatherModel
+          ? _value.weatherModel
+          : weatherModel // ignore: cast_nullable_to_non_nullable
               as WeatherModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WeatherModelCopyWith<$Res> get language {
-    return $WeatherModelCopyWith<$Res>(_value.language, (value) {
-      return _then(_value.copyWith(language: value));
+  $WeatherModelCopyWith<$Res> get weatherModel {
+    return $WeatherModelCopyWith<$Res>(_value.weatherModel, (value) {
+      return _then(_value.copyWith(weatherModel: value));
     });
   }
 }
@@ -357,14 +357,14 @@ class __$$DataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DataImpl implements _Data {
-  const _$DataImpl(this.language);
+  const _$DataImpl(this.weatherModel);
 
   @override
-  final WeatherModel language;
+  final WeatherModel weatherModel;
 
   @override
   String toString() {
-    return 'WeatherScreenState.data(language: $language)';
+    return 'WeatherScreenState.data(weatherModel: $weatherModel)';
   }
 
   @override
@@ -372,12 +372,12 @@ class _$DataImpl implements _Data {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataImpl &&
-            (identical(other.language, language) ||
-                other.language == language));
+            (identical(other.weatherModel, weatherModel) ||
+                other.weatherModel == weatherModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, language);
+  int get hashCode => Object.hash(runtimeType, weatherModel);
 
   @JsonKey(ignore: true)
   @override
@@ -390,10 +390,10 @@ class _$DataImpl implements _Data {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WeatherModel language) data,
+    required TResult Function(WeatherModel weatherModel) data,
     required TResult Function(Object? error, StackTrace? stackTrace) error,
   }) {
-    return data(language);
+    return data(weatherModel);
   }
 
   @override
@@ -401,10 +401,10 @@ class _$DataImpl implements _Data {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WeatherModel language)? data,
+    TResult? Function(WeatherModel weatherModel)? data,
     TResult? Function(Object? error, StackTrace? stackTrace)? error,
   }) {
-    return data?.call(language);
+    return data?.call(weatherModel);
   }
 
   @override
@@ -412,12 +412,12 @@ class _$DataImpl implements _Data {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WeatherModel language)? data,
+    TResult Function(WeatherModel weatherModel)? data,
     TResult Function(Object? error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(language);
+      return data(weatherModel);
     }
     return orElse();
   }
@@ -461,9 +461,9 @@ class _$DataImpl implements _Data {
 }
 
 abstract class _Data implements WeatherScreenState {
-  const factory _Data(final WeatherModel language) = _$DataImpl;
+  const factory _Data(final WeatherModel weatherModel) = _$DataImpl;
 
-  WeatherModel get language;
+  WeatherModel get weatherModel;
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -542,7 +542,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WeatherModel language) data,
+    required TResult Function(WeatherModel weatherModel) data,
     required TResult Function(Object? error, StackTrace? stackTrace) error,
   }) {
     return error(this.error, stackTrace);
@@ -553,7 +553,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WeatherModel language)? data,
+    TResult? Function(WeatherModel weatherModel)? data,
     TResult? Function(Object? error, StackTrace? stackTrace)? error,
   }) {
     return error?.call(this.error, stackTrace);
@@ -564,7 +564,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WeatherModel language)? data,
+    TResult Function(WeatherModel weatherModel)? data,
     TResult Function(Object? error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {

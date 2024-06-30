@@ -27,17 +27,23 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
-    loadWeather();
+    WidgetsBinding.instance.addPostFrameCallback((_) => loadWeather());
     super.initState();
   }
 
   Future<void> loadWeather() async {
-    final unit = inject<UnitsCubit>().state;
-    final userLocation = await inject<GeoLocator>().getLocation();
-    inject<WeatherScreenCubit>().loadWeather(
-      userLocation: userLocation,
-      unit: unit,
-    );
+    try {
+      final unit = inject<UnitsCubit>().state;
+
+      final userLocation = await inject<GeoLocator>().getLocation();
+
+      await inject<WeatherScreenCubit>().loadWeather(
+        userLocation: userLocation,
+        unit: unit,
+      );
+    } catch (e, st) {
+      debugPrint('Error in loadWeather: $e $st');
+    }
   }
 
   @override
