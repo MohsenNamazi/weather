@@ -130,13 +130,18 @@ class _DailyWeatherTileState extends State<_DailyWeatherTile> {
     );
   }
 
+  // Set the min and max temp of the day
   void setTheMinMaxTemp() {
-    // Get the min temp of the day
-    widget.groupedDay.sort((a, b) => a.main.tempMin.compareTo(b.main.tempMin));
     minTemp = widget.groupedDay.first.main.tempMin;
-
-    // Get the max temp of the day
-    widget.groupedDay.sort((a, b) => a.main.tempMax.compareTo(b.main.tempMax));
     maxTemp = widget.groupedDay.last.main.tempMax;
+
+    for (final weatherData in widget.groupedDay) {
+      minTemp = weatherData.main.tempMin < minTemp
+          ? weatherData.main.tempMin
+          : minTemp;
+      maxTemp = weatherData.main.tempMax > maxTemp
+          ? weatherData.main.tempMax
+          : maxTemp;
+    }
   }
 }

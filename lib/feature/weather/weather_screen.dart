@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:weather/data/model/weather_data/weather_data.dart';
 import 'package:weather/data/model/weather_model/weather_model.dart';
 import 'package:weather/data/repository/open_weather_repo.dart';

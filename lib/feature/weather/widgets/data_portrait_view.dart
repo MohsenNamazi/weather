@@ -37,9 +37,30 @@ class _DataPortraitView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: Spacing.s4),
-              Center(
-                child: Text(
-                  '${selectedDay.first.main.temp} ${appUnit.sym}',
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ...selectedDay.map(
+                      (weatherData) => Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: Spacing.s2),
+                        child: Column(
+                          children: [
+                            Text(
+                              DateFormat('HH:mm').format(weatherData.dateTime),
+                            ),
+                            const SizedBox(
+                              height: Spacing.s1,
+                            ),
+                            Text(
+                              '${weatherData.main.temp} ${appUnit.sym}',
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
               const SizedBox(height: Spacing.s4),
