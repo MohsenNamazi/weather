@@ -41,6 +41,11 @@ void main() {
       ..registerLazySingleton<GeoLocator>(() => geoLocatorMock);
 
     when(() => unitsCubitMock.state).thenReturn(Units.imperial);
+    when(() => weatherScreenCubitMock.loadWeather(
+          unit: any(named: 'unit'),
+          userLocation: any(named: 'userLocation'),
+        )).thenAnswer((_) async => true);
+
     when(() => geoLocatorMock.getLocation())
         .thenAnswer((_) async => UserLocation(lat: 0.0, lon: 0.0));
   });
