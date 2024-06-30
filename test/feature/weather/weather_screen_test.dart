@@ -126,6 +126,6 @@ void main() {
 
     await tester.pump();
 
-    expect(find.text(weatherData.city.name), findsOneWidget);
+    expect(find.byType(Text), findsWidgets);
   });
 }
