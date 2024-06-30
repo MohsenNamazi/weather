@@ -40,7 +40,7 @@ void main() {
       ..registerLazySingleton<UnitsCubit>(() => unitsCubitMock)
       ..registerLazySingleton<GeoLocator>(() => geoLocatorMock);
 
-    when(() => unitsCubitMock.state).thenReturn(Units.metric);
+    when(() => unitsCubitMock.state).thenReturn(Units.imperial);
     when(() => geoLocatorMock.getLocation())
         .thenAnswer((_) async => UserLocation(lat: 0.0, lon: 0.0));
   });
@@ -126,6 +126,15 @@ void main() {
 
     await tester.pump();
 
+    final l10n =
+        AppLocalizations.of(tester.element(find.byType(WeatherScreen)))!;
+
     expect(find.byType(Text), findsWidgets);
+    expect(find.text(l10n.tuesdayShort), findsOneWidget);
+    expect(find.text(l10n.humidity(69)), findsOneWidget);
+    expect(find.text(l10n.pressure(1015)), findsOneWidget);
+    expect(find.text(l10n.wind(.62)), findsOneWidget);
+    expect(find.text('Rain'), findsOneWidget);
+    expect(find.text('296.76 ${Units.imperial.sym}'), findsOneWidget);
   });
 }
